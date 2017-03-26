@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import MindInfo from './MindInfo';
 import MindDetail from './MindDetail';
+import MindCreate from './MindForm';
 
 const propTypes = {
 
@@ -40,6 +41,7 @@ class Mind extends Component {
       ],
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
   }
 
 
@@ -47,6 +49,19 @@ class Mind extends Component {
     this.setState({
       selectedKey: key,
     });
+  }
+
+  handleCreate(mind) {
+    console.log(this.state);
+    console.log(this.state.mindData);
+    console.log(mind);
+
+    this.setState({
+      ...this.state,
+      mindData: [...this.state.mindData, mind],
+    });
+    console.log(this.state.mindData);
+
   }
 
   render() {
@@ -66,6 +81,7 @@ class Mind extends Component {
             mind={this.state.mindData[this.state.selectedKey]}
           />
         </div>
+        <div><MindCreate onCreate={this.handleCreate}/></div>
       </div>
     );
   }
