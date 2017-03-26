@@ -1,3 +1,4 @@
+import update from 'react-addons-update';
 import React, { Component } from 'react';
 import MindInfo from './MindInfo';
 import MindDetail from './MindDetail';
@@ -42,6 +43,7 @@ class Mind extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
 
@@ -52,16 +54,24 @@ class Mind extends Component {
   }
 
   handleCreate(mind) {
-    console.log(this.state);
-    console.log(this.state.mindData);
-    console.log(mind);
-
     this.setState({
       ...this.state,
       mindData: [...this.state.mindData, mind],
     });
-    console.log(this.state.mindData);
+    // immunityhelper version
+    // this.setState({
+    //     mindData: update(this.state.mindData, { $push: [mind] }),
+    // });
+  }
 
+  handleDelete() {
+    if (this.state.selectedKey < 0) return;
+    this.setState({
+      mindData: update(this.state.mindData,
+        { $splice: [[this.state.selectedKey, 1]] },
+      ),
+      selectedKey: -1,
+    });
   }
 
   render() {
@@ -71,6 +81,9 @@ class Mind extends Component {
       });
     };
 
+    console.log(this.state.mindData);
+    console.log(this.state.selectedKey);
+
 
     return (
       <div>
@@ -79,9 +92,10 @@ class Mind extends Component {
           <MindDetail
             isSelected={this.state.selectedKey !== -1}
             mind={this.state.mindData[this.state.selectedKey]}
+            onDelete={this.handleDelete}
           />
         </div>
-        <div><MindCreate onCreate={this.handleCreate}/></div>
+        <div><MindCreate onCreate={this.handleCreate} /></div>
       </div>
     );
   }
