@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import MindInfo from './MindInfo';
+import MindDetail from './MindDetail';
 
 const propTypes = {
 
@@ -38,12 +39,20 @@ class Mind extends Component {
       },
       ],
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+
+  handleClick(key) {
+    this.setState({
+      selectedKey: key,
+    });
   }
 
   render() {
     const mapToComponents = (data) => {
       return data.map((mind, i) => {
-        return (<MindInfo mind={mind} key={i} />);
+        return (<MindInfo mind={mind} key={i} onClick={() => this.handleClick(i)} />);
       });
     };
 
@@ -51,6 +60,12 @@ class Mind extends Component {
     return (
       <div>
         <div>{mapToComponents(this.state.mindData)}</div>
+        <div>
+          <MindDetail
+            isSelected={this.state.selectedKey !== -1}
+            mind={this.state.mindData[this.state.selectedKey]}
+          />
+        </div>
       </div>
     );
   }

@@ -2,14 +2,15 @@ import React, { Component, PropTypes } from 'react';
 
 const propTypes = {
   title: React.PropTypes.string,
-
+  content: React.PropTypes.string,
+  onClick: React.PropTypes.function,
 };
 
 const defaultProps = {
 
 };
 
-class MindInfo extends Component {
+export default class MindInfo extends Component {
 
   constructor(props) {
       super(props);
@@ -17,15 +18,11 @@ class MindInfo extends Component {
 
   render() {
     return (
-      <div>
+      <div onClick={this.props.onClick}>
         {this.props.mind.title}
         {this.props.mind.content}
       </div>
     );
   }
 }
-
-MindInfo.propTypes = propTypes;
-MindInfo.defaultProps = defaultProps;
-
-export default MindInfo;
+;
