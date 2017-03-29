@@ -17,21 +17,6 @@ class MindContent extends Component {
   constructor(props) {
       super(props);
   }
-
-  popupActivate() {
-
-
-    const mindButton = document.getElementsByClassName("button").getBoundingClientRect();
-    const popupCoordsX = mindButton.left + window.scrollX;
-    const popupCoordsY = mindButton.top + window.scrollY;
-    const popup = document.getElementsByClassName("popup");
-    popup.style.left = `${popupCoordsX}px`;
-    popup.style.top = `${popupCoordsY}px`;
-    popup.style.transform = `translate(${popupCoordsX}px, ${popupCoordsY}px)`;
-    console.log(popup.style.top);
-    // console.log(popup[this.props.key]);
-  }
-
   render() {
     return (
       <div>
