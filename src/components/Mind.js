@@ -116,7 +116,10 @@ class Mind extends Component {
     // console.log(popup);
 
     popup.style.transform = `translate(${popupCoordsX}px, ${popupCoordsY}px)`;
-    // console.log(document.getElementsByClassName("button")[this.state.selectedKey].getBoundingClientRect());
+
+    this.setState({
+      alreadyPopup: !this.state.alreadyPopup,
+    });
   }
 
   render() {

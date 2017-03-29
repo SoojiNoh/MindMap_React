@@ -47,7 +47,7 @@
   -webkit-transition:all 1s;
 }
 
-.button:hover {
+.clicked ,.button:hover {
   background-color:#00FFFF;
   cursor:pointer;
 }
