@@ -14,15 +14,19 @@ export default class MindInfo extends Component {
 
   constructor(props) {
     super(props);
+    // this.handleClick=this.handleClick.bind(this);
   }
-
   render() {
     return (
-      <div onClick={this.props.onClick}>
-        {this.props.mind.title}
-        {this.props.mind.content}
+      <div onClick={this.props.onClick} ref="mindButton">
+        <ul>
+          <li>
+            <div className="button">
+              {this.props.mind.title}
+            </div>
+          </li>
+        </ul>
       </div>
     );
   }
 }
-;

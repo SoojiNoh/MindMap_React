@@ -1,0 +1,68 @@
+.popup{
+  /*position: absolute;*/
+  /*left:40vw;*/
+  margin-left:4vw;
+  /*top:50vh;*/
+  margin-top:-120px;
+  transition:all 1s;
+  -webkit-transition:all 1s;
+  opacity: 0;
+
+}
+
+
+.popup div
+{
+  /*opacity:0;*/
+  width:120px;
+  font-size:20px;
+}
+
+.popup div
+{
+  padding:50px;
+  background-color:black;
+  border-radius:40px;
+  color:white;
+  text-align:center;
+}
+
+/* button */
+.button{
+ /*position:fixed;*/
+ top:50vh;
+ margin-top:10px;
+ left:50vw;
+ margin-left:0px;
+ display:inline-block;
+ text-align:center;
+ background-color:yellow;
+ padding:40px;
+
+ font-size:30px;
+
+ border-radius:100px;
+
+  transition:all 1s;
+  -webkit-transition:all 1s;
+}
+
+.button:hover {
+  background-color:#00FFFF;
+  cursor:pointer;
+}
+
+
+
+/* Gestion des évenements */
+
+/*.button:hover popup
+{
+  margin-left:45px;
+  margin-top:-220px;
+  opacity:1;
+}*/
+
+.visible {
+  opacity: 1;
+}

@@ -16,7 +16,7 @@ export default class MindForm extends React.Component {
   }
 
 
-  handleClick(){
+  handleClick(e) {
     const mind = {
       title: this.state.title,
       content: this.state.content,
@@ -26,6 +26,7 @@ export default class MindForm extends React.Component {
       name: '',
       phone: '',
     };
+    console.log(e);
   }
 
   handleChange(e){
@@ -53,7 +54,7 @@ export default class MindForm extends React.Component {
           value = {this.state.content}
           onChange = {this.handleChange}
         />
-      <button onClick = {this.handleClick}>
+        <button onClick={this.handleClick}>
           Complete
         </button>
       </div>
